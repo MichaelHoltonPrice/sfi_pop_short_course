@@ -101,27 +101,82 @@ $\frac{v(x)}{v(0)} = \frac{e^{rx}}{l(x)} \int_{x}^{\infty} e^{-ra} \, l(a) \, m(
 \end{frame}
 
 %----------- slide --------------------------------------------------%
-\begin{frame}{Euler-Lotka equation}
-$1 = \displaystyle\sum\limits_{j=1}^{J} \frac{l_j \, b_j}{\lambda^j}$\\
-\vspace{.5cm}
-where\\
-\vspace{.5cm}
-$\lambda$ is the per period growth rate\\
-\vspace{.5cm}
-$l_j$ is survival to age class $j$\\
-\vspace{.5cm}
-$b_j$ is per capita birth rate for mothers in age class $j$\\
+\begin{frame}{Reproductive Value: discrete age classes}
+  $v_i =  \displaystyle\sum\limits_{j=i}^{J} \frac{P_{ij} \, F_j}{\lambda^{j-i+1}} = \frac{F_i}{\lambda} + \frac{P_{i+1} \, F_{i+1}}{\lambda^2} + \frac{P_{i+1} \, P_{i+2} \, F_{i+2}}{\lambda^3} + \cdots$\\
+  \vspace{.5cm}
+  where\\
+  \vspace{.5cm}
+  $P_j$ is age-specific survival\\
+  \vspace{.5cm}
+  $F_j$ is age-specific fertility\\
+  \vspace{.5cm}
+  $P_{ij} = P_i \, P_{i+1} \cdots P_{j-1}$ is survival from age class $i$ to $j$\\
+  \vspace{.5cm}
+  $\lambda$ is the per period growth rate\\
 \end{frame}
 
 %----------- slide --------------------------------------------------%
-\begin{frame}{$R_0$: Expected daughters across mother's lifespan}
-$1 = \displaystyle\sum\limits_{j=1}^{J} \frac{l_j \, b_j}{\lambda^j}$\\
-\vspace{.5cm}
-Compare to:\\
-\vspace{.5cm}
-$R_0 = \displaystyle\sum\limits_{j=1}^{J} l_j \, b_j$\\
+\begin{frame}{Repro value plots using Goodman data}
 \end{frame}
 
+%----------- slide --------------------------------------------------%
+\begin{frame}{Euler-Lotka / characteristic equation}
+  $v_1 = 1 = \displaystyle\sum\limits_{j=1}^{J} \frac{P_{1j} \, F_j}{\lambda^j} = \displaystyle\sum\limits_{j=1}^{J} \frac{l_j \, F_j}{\lambda^j}$\\
+\vspace{.5cm}
+where\\
+\vspace{.5cm}
+  $l_j = P_{1j}$ is survival from birth to age class $j$\\
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{Euler-Lotka continuous form}
+  $1 = \int_{0}^{\infty} e^{-ra} \, l(a) \, b(a) da$\\
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{Euler-Lotka meets scaling theory}
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+{
+  \setbeamercolor{background canvas}{bg=}
+  \includepdf[pages=1-9]{princeton_select_slides.pdf}
+}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{Euler-Lotka meets scaling theory}
+  $1 = e^{-r \alpha} \, R(w_0,w_{\alpha}) \, V(w_0,w_{\alpha})$\\
+  \vspace{.5cm}
+  \pause
+  $r = r(w_0,w_{\alpha})$\\
+  \vspace{.5cm}
+  \pause
+  $\frac{\partial r}{\partial w_0} = 0$\\
+  \vspace{.5cm}
+  \pause
+  $\alpha = \alpha(w_0,w_{\alpha})$\\
+  \vspace{.5cm}
+  \pause
+  $\frac{\partial}{\partial w_0} \left[ e^{-r \alpha} \, R(w_0,w_{\alpha}) \, V(w_0,w_{\alpha}) \right] = 0$\\
+  \vspace{.5cm}
+  \pause
+  $\frac{\partial \log{R}}{\partial w_0} - r \, \frac{\partial \alpha}{\partial w_0} + \frac{\partial \log{V}}{\partial w_0} \log{R} = 0$\\
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+{
+  \setbeamercolor{background canvas}{bg=}
+  \includepdf[pages=10]{princeton_select_slides.pdf}
+}
+
+%%----------- slide --------------------------------------------------%
+%\begin{frame}{$R_0$: Expected daughters across mother's lifespan}
+%$1 = \displaystyle\sum\limits_{j=1}^{J} \frac{l_j \, b_j}{\lambda^j}$\\
+%\vspace{.5cm}
+%Compare to:\\
+%\vspace{.5cm}
+%$R_0 = \displaystyle\sum\limits_{j=1}^{J} l_j \, b_j$\\
+%\end{frame}
 
 
 %----------- slide --------------------------------------------------%
@@ -203,36 +258,36 @@ $\mathbf{z}_{t+1} = \mathbf{A} \, \mathbf{z}_t$
     
     \node (z_t_0) [box,right of=z_tm1_0,xshift=2cm] {$z_t[0]$};
     
-    \draw [arrow] (z_tm3_0.east) to node[xshift=.1cm,yshift=-.9cm] {$s_0$} (z_tm2_1.west);
+    \draw [arrow] (z_tm3_0.east) to node[xshift=.1cm,yshift=-.9cm] {$P_1$} (z_tm2_1.west);
     \pause
-    \draw [arrow] (z_tm3_1.east) to node[xshift=.1cm,yshift=-.9cm] {$s_1$} (z_tm2_2.west);
+    \draw [arrow] (z_tm3_1.east) to node[xshift=.1cm,yshift=-.9cm] {$P_2$} (z_tm2_2.west);
     %\draw [arrow] (z_tm2_3.east) to (z_tm1_4.west);
     \pause
 
-    \draw [arrow] (z_tm2_0.east) to node[xshift=.1cm,yshift=-.9cm] {$s_0$} (z_tm1_1.west);
-    \draw [arrow] (z_tm2_1.east) to node[xshift=.1cm,yshift=-.9cm] {$s_1$} (z_tm1_2.west);
+    \draw [arrow] (z_tm2_0.east) to node[xshift=.1cm,yshift=-.9cm] {$P_1$} (z_tm1_1.west);
+    \draw [arrow] (z_tm2_1.east) to node[xshift=.1cm,yshift=-.9cm] {$P_2$} (z_tm1_2.west);
     %\draw [arrow] (z_tm1_3.east) to (z_t_4.west);
     \pause
     
-    \draw [arrow] (z_tm1_0.east) to node[yshift=.3cm] {$f_0$} (z_t_0.west);
-    \draw [arrow] (z_tm1_1.east) -| node[yshift=.3cm,xshift=-.8cm] {$f_1$} (z_t_0.west);
-    \draw [arrow] (z_tm1_2.east) -| node[yshift=.3cm,xshift=-.8cm] {$f_2$} (z_t_0.west);
+    \draw [arrow] (z_tm1_0.east) to node[yshift=.3cm] {$F_1$} (z_t_0.west);
+    \draw [arrow] (z_tm1_1.east) -| node[yshift=.3cm,xshift=-.8cm] {$F_2$} (z_t_0.west);
+    \draw [arrow] (z_tm1_2.east) -| node[yshift=.3cm,xshift=-.8cm] {$F_3$} (z_t_0.west);
     
-    \node (euler_lotka) [mathbox,right of=z_tm3_3,xshift=4.8cm] {$z_t[1] = z_{t-1}[1] \, f_0 + z_{t-2}[1] \, s_0 \, f_1 + z_{t-3}[1] \, s_0 \, s_1 \, f_2 + \cdots$};
+    \node (euler_lotka) [mathbox,right of=z_tm3_3,xshift=4.8cm] {$z_t[1] = z_{t-1}[1] \, F_1 + z_{t-2}[1] \, P_1 \, F_2 + z_{t-3}[1] \, P_1 \, P_2 \, F_2 + \cdots$};
     
   \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Euler-Lotka Equation}
-  $y_t \equiv z_t[0]$\\
+  $y_t \equiv z_t[1]$\\
   \vspace{.5cm}
-  $y_t = y_{t-1} \, f_0 + y_{t-2} \, s_0 \ f_1 + y_{t-2} \, s_0 \, s_1 \, f_2 + \cdots = \displaystyle\sum\limits_{j=0}^{J-1} y_{t-j-1} \, l_j \, f_j$\\
+  $y_t = y_{t-1} \, F_1 + y_{t-2} \, S_1 \ F_2 + y_{t-2} \, P_1 \, P_2 \, F_3 + \cdots = \displaystyle\sum\limits_{j=1}^{J} y_{t-j-1} \, l_j \, F_j$\\
   \vspace{.5cm}
   Posit an exponential solution\\
   \vspace{.5cm}
   $y_{t-j-1} = \frac{y_t}{\lambda^{j+1}}$\\
   \vspace{.5cm}
-  $1 = \displaystyle\sum\limits_{j=0}^{J-1} \frac{l_j \, f_j}{\lambda^{j+1}}$\\
+  $1 = \displaystyle\sum\limits_{j=1}^{J} \frac{l_j \, F_j}{\lambda^{j+1}}$\\
   %$l_j = \displaystyle\prod\limits_{i=1}^{j-1} P_k$
 \end{frame}
 
@@ -245,7 +300,7 @@ $\mathbf{z}_{t+1} = \mathbf{A} \, \mathbf{z}_t$
   \vspace{.5cm}
   $f_j = \frac{l_{j+1} \, b_{j+1}}{l_j}$\\
   \vspace{.5cm}
-  $1 = \displaystyle\sum\limits_{j=0}^{J-1} \frac{l_j \, f_j}{\lambda^{j+1}} = \displaystyle\sum\limits_{j=0}^{J-1} \frac{l_j \, l_{j+1} \, b_{j+1}}{l_j \, \lambda^{j+1}} = \displaystyle\sum\limits_{j=0}^{J-1} \frac{l_{j+1} \, b_{j+1}}{\lambda^{j+1}} = \displaystyle\sum\limits_{j=1}^{J} \frac{l_j \, b_j}{\lambda^j}$\\
+  $1 = \displaystyle\sum\limits_{j=1}^{J} \frac{l_j \, f_j}{\lambda^{j+1}} = \displaystyle\sum\limits_{j=1}^{J} \frac{l_j \, l_{j+1} \, b_{j+1}}{l_j \, \lambda^{j+1}} = \displaystyle\sum\limits_{j=1}^{J} \frac{l_{j+1} \, b_{j+1}}{\lambda^{j+1}} = \displaystyle\sum\limits_{j=2}^{J} \frac{l_j \, b_j}{\lambda^j}$\\
   \vspace{.5cm}
 \end{frame}
 
