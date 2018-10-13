@@ -1,0 +1,253 @@
+% small.tex
+\documentclass{beamer}
+%\usetheme{default}
+\usetheme{Warsaw}
+\usecolortheme{whale}
+\usepackage{tikz}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{soul}
+\usepackage{pdfpages}
+\usepackage[most]{tcolorbox}
+%\usepackage{multirow}
+\usepackage{tikz,amsmath,array}
+
+
+\newcommand{\greekbf}[1]{\boldsymbol{\mathrm{#1}}}
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+%\setbeamertemplate{background}[grid][step=.25\textwidth]
+
+\title[selection]{Action of selection on fertility and mortality}
+%\subtitle
+\author{Michael Holton Price}
+\institute[SFI] {
+	Santa Fe Institute\\
+	MichaelHoltonPrice@gmail.com\\
+	\line(1,0){0}\\
+	SFI Population Short Course\\
+	16 Oct 2018\\
+}
+%\date{05 Feb 2014}
+\date{}
+
+% Note: default dimensions are 128 mm by 96 mm (4 x 3)
+\begin{document}
+
+%----------- titlepage ----------------------------------------------%
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{Tinbergen's four questions}
+  \begin{center}
+  \begin{tabular}{P{4cm}P{4cm}}
+    \begin{center}
+    \begin{minipage}{.25\textwidth}
+      \begin{tcolorbox}{}
+        Ontogeny
+      \end{tcolorbox}
+    \end{minipage}
+    \end{center}&
+    \pause
+    \begin{center}
+    \begin{minipage}{.25\textwidth}
+      \begin{tcolorbox}{}
+        Phylogeny
+      \end{tcolorbox}
+    \end{minipage}
+    \end{center}\\
+    \pause
+    \begin{center}
+    \begin{minipage}{.25\textwidth}
+      \begin{tcolorbox}{}
+        Mechanism
+      \end{tcolorbox}
+    \end{minipage}
+    \end{center}&
+    \pause
+    \begin{center}
+    \begin{minipage}{.25\textwidth}
+      \begin{tcolorbox}{}
+        Function
+      \end{tcolorbox}
+    \end{minipage}
+    \end{center}\\
+    \end{tabular}
+    \end{center}
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{On Optimization vs. Fitness}
+Tuljapurkar 1982 -- Population Dynamics in Variable Environment\\
+\pause
+\vspace{1cm}
+A phenotype with long term mean log growth rate, $a$, cannot be invaded by any phenotype with a lower long term mean log growth rate\\
+\pause
+\vspace{1cm}
+Take $a$ as a fitness measure to be maximized\\
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{Reproductive Value: "important but confusing concept"}
+\begin{block}{Euler 1930}
+"We may ask, not only about the newly born, but about persons of any chosen age, what is the present value of their future offspring; and if the present value is calculated at the rate determined as before, the question has the definite meaning -- To what extent will persons of this age, on the average, contribute to the ancestry of future generations? The question is one of some interest, since the direct action of Natural Selection must be proportional to this contribution."
+\end{block}
+\vspace{.5cm}
+\pause
+% "easily seen to be given by this equation"
+$\frac{v(x)}{v(0)} = \frac{e^{rx}}{l(x)} \int_{x}^{\infty} e^{-ra} \, l(a) \, m(a) \, da$
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{Euler-Lotka equation}
+$1 = \displaystyle\sum\limits_{j=1}^{J} \frac{l_j \, b_j}{\lambda^j}$\\
+\vspace{.5cm}
+where\\
+\vspace{.5cm}
+$\lambda$ is the per period growth rate\\
+\vspace{.5cm}
+$l_j$ is survival to age class $j$\\
+\vspace{.5cm}
+$b_j$ is per capita birth rate for mothers in age class $j$\\
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{$R_0$: Expected daughters across mother's lifespan}
+$1 = \displaystyle\sum\limits_{j=1}^{J} \frac{l_j \, b_j}{\lambda^j}$\\
+\vspace{.5cm}
+Compare to:\\
+\vspace{.5cm}
+$R_0 = \displaystyle\sum\limits_{j=1}^{J} l_j \, b_j$\\
+\end{frame}
+
+
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{Review: Leslie Matrices}
+\centering
+\begin{equation*}
+	\label{eq:A}
+	\mathbf{A} = 
+	\left( \begin{array}{cccccc}
+		F_1 & F_2 & F_3 & F_4    & \cdots  & F_{J}   \\
+		P_1 & 0   & 0   & 0      & \cdots  & 0       \\
+		0   & P_2 & 0   & 0      & \cdots  & 0       \\
+		0   & 0   & P_3 & 0      & \cdots  & 0       \\
+		0   & 0   & 0   & \ddots & \cdots  & 0       \\
+		0   & 0   & 0   & \ddots & P_{J-1} & 0
+	\end{array} \right)
+\end{equation*}
+\\
+\pause
+\vspace{1.5cm}
+$\mathbf{z}_{t+1} = \mathbf{A} \, \mathbf{z}_t$
+\end{frame}
+
+\begin{frame}{Euler-Lotka Equation}
+  \begin{tikzpicture}[every text node part/.style={align=center}]
+    % Preliminaries
+    \usetikzlibrary{shapes.geometric, arrows, shapes.multipart}
+    \tikzstyle{box} = [rectangle, minimum width=1.5cm, minimum height=1.5cm, text centered, draw=black, fill=gray!30]
+    %\tikzstyle{box} = [rectangle, minimum width=1.5cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+    \tikzstyle{strat} = [rectangle, minimum width=1.5cm, minimum height=1cm, text centered, draw=white, fill=white]
+    \tikzstyle{arrow} = [thick,->,>=stealth]
+    % Field Processing Flow
+    %\node (field_strat) [strat] {Field \\ Processing};
+    \node (z_tm2_0) [box] {$z_{t-2}[0]$};
+    \pause
+    \node (z_tm2_1) [box,below of=z_tm2_0,yshift=-1cm] {$z_{t-2}[1]$};
+    \pause
+    \node (z_tm2_2) [box,below of=z_tm2_1,yshift=-1cm] {$z_{t-2}[2]$};
+    \pause
+    \node (z_tm2_3) [box,below of=z_tm2_2,yshift=-1cm] {$\cdots$};
+    \pause
+    \node (z_tm1_0) [box,right of=z_tm2_0,xshift=1.5cm] {$z_{t-1}[0]$};
+    \node (z_tm1_1) [box,below of=z_tm1_0,yshift=-1cm] {$z_{t-1}[1]$};
+    \node (z_tm1_2) [box,below of=z_tm1_1,yshift=-1cm] {$z_{t-1}[2]$};
+    \node (z_tm1_3) [box,below of=z_tm1_2,yshift=-1cm] {$\cdots$};
+    \pause
+    \node (z_t_0) [box,right of=z_tm1_0,xshift=2cm] {$z_t[0]$};
+    \node (z_t_1) [box,below of=z_t_0,yshift=-1cm] {$z_t[1]$};
+    \node (z_t_2) [box,below of=z_t_1,yshift=-1cm] {$z_t[2]$};
+    \node (z_t_3) [box,below of=z_t_2,yshift=-1cm] {$\cdots$};
+    \pause
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Euler-Lotka Equation}
+  \begin{tikzpicture}[every text node part/.style={align=center}]
+    % Preliminaries
+    \usetikzlibrary{shapes.geometric, arrows, shapes.multipart}
+    \tikzstyle{box} = [rectangle, minimum width=1.5cm, minimum height=1.5cm, text centered, draw=black, fill=gray!30]
+    %\tikzstyle{box} = [rectangle, minimum width=1.5cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+    \tikzstyle{mathbox} = [rectangle, minimum width=1.5cm, minimum height=1cm, text centered, draw=white, fill=white]
+    \tikzstyle{arrow} = [thick,->,>=stealth]
+    % Field Processing Flow
+    %\node (field_strat) [strat] {Field \\ Processing};
+    \node (z_tm3_0) [box] {$z_{t-3}[0]$};
+    \node (z_tm3_1) [box,below of=z_tm3_0,yshift=-1cm] {$z_{t-3}[1]$};
+    \node (z_tm3_2) [box,below of=z_tm3_1,yshift=-1cm] {$z_{t-3}[2]$};
+    \node (z_tm3_3) [box,below of=z_tm3_2,yshift=-1cm] {$\cdots$};
+    
+    \node (z_tm2_0) [box,right of=z_tm3_0,xshift=1.5cm] {$z_{t-2}[0]$};
+    \node (z_tm2_1) [box,below of=z_tm2_0,yshift=-1cm] {$z_{t-2}[1]$};
+    \node (z_tm2_2) [box,below of=z_tm2_1,yshift=-1cm] {$z_{t-2}[2]$};
+    %\node (z_tm2_4) [box,below of=z_tm2_3,yshift=-1cm] {$\cdots$};
+    
+    \node (z_tm1_0) [box,right of=z_tm2_0,xshift=1.5cm] {$z_{t-1}[0]$};
+    \node (z_tm1_1) [box,below of=z_tm1_0,yshift=-1cm] {$z_{t-1}[1]$};
+    \node (z_tm1_2) [box,below of=z_tm1_1,yshift=-1cm] {$z_{t-1}[2]$};
+    %\node (z_tm1_4) [box,below of=z_tm1_3,yshift=-1cm] {$\cdots$};
+    
+    \node (z_t_0) [box,right of=z_tm1_0,xshift=2cm] {$z_t[0]$};
+    
+    \draw [arrow] (z_tm3_0.east) to node[xshift=.1cm,yshift=-.9cm] {$s_0$} (z_tm2_1.west);
+    \pause
+    \draw [arrow] (z_tm3_1.east) to node[xshift=.1cm,yshift=-.9cm] {$s_1$} (z_tm2_2.west);
+    %\draw [arrow] (z_tm2_3.east) to (z_tm1_4.west);
+    \pause
+
+    \draw [arrow] (z_tm2_0.east) to node[xshift=.1cm,yshift=-.9cm] {$s_0$} (z_tm1_1.west);
+    \draw [arrow] (z_tm2_1.east) to node[xshift=.1cm,yshift=-.9cm] {$s_1$} (z_tm1_2.west);
+    %\draw [arrow] (z_tm1_3.east) to (z_t_4.west);
+    \pause
+    
+    \draw [arrow] (z_tm1_0.east) to node[yshift=.3cm] {$f_0$} (z_t_0.west);
+    \draw [arrow] (z_tm1_1.east) -| node[yshift=.3cm,xshift=-.8cm] {$f_1$} (z_t_0.west);
+    \draw [arrow] (z_tm1_2.east) -| node[yshift=.3cm,xshift=-.8cm] {$f_2$} (z_t_0.west);
+    
+    \node (euler_lotka) [mathbox,right of=z_tm3_3,xshift=4.8cm] {$z_t[1] = z_{t-1}[1] \, f_0 + z_{t-2}[1] \, s_0 \, f_1 + z_{t-3}[1] \, s_0 \, s_1 \, f_2 + \cdots$};
+    
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Euler-Lotka Equation}
+  $y_t \equiv z_t[0]$\\
+  \vspace{.5cm}
+  $y_t = y_{t-1} \, f_0 + y_{t-2} \, s_0 \ f_1 + y_{t-2} \, s_0 \, s_1 \, f_2 + \cdots = \displaystyle\sum\limits_{j=0}^{J-1} y_{t-j-1} \, l_j \, f_j$\\
+  \vspace{.5cm}
+  Posit an exponential solution\\
+  \vspace{.5cm}
+  $y_{t-j-1} = \frac{y_t}{\lambda^{j+1}}$\\
+  \vspace{.5cm}
+  $1 = \displaystyle\sum\limits_{j=0}^{J-1} \frac{l_j \, f_j}{\lambda^{j+1}}$\\
+  %$l_j = \displaystyle\prod\limits_{i=1}^{j-1} P_k$
+\end{frame}
+
+\begin{frame}{Euler-Lotka Equation}
+%  $1 = \displaystyle\sum\limits_{j=0}^{J-1} \frac{l_j \, f_j}{\lambda^{j+1}}$\\
+  \vspace{.5cm}
+  $b_{j+1} \equiv \frac{f_j}{s_j}$\\
+  \vspace{.5cm}
+  $s_{j} = \frac{l_{j+1}}{l_j}$\\
+  \vspace{.5cm}
+  $f_j = \frac{l_{j+1} \, b_{j+1}}{l_j}$\\
+  \vspace{.5cm}
+  $1 = \displaystyle\sum\limits_{j=0}^{J-1} \frac{l_j \, f_j}{\lambda^{j+1}} = \displaystyle\sum\limits_{j=0}^{J-1} \frac{l_j \, l_{j+1} \, b_{j+1}}{l_j \, \lambda^{j+1}} = \displaystyle\sum\limits_{j=0}^{J-1} \frac{l_{j+1} \, b_{j+1}}{\lambda^{j+1}} = \displaystyle\sum\limits_{j=1}^{J} \frac{l_j \, b_j}{\lambda^j}$\\
+  \vspace{.5cm}
+\end{frame}
+
+
+\end{document}
