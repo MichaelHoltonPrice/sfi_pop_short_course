@@ -90,9 +90,9 @@ Take $a$ as a fitness measure to be maximized\\
 \end{frame}
 
 %----------- slide --------------------------------------------------%
-\begin{frame}{Reproductive Value: "important but confusing concept"}
+\begin{frame}{Reproductive Value: ``important but confusing concept''}
 \begin{block}{Euler 1930}
-"We may ask, not only about the newly born, but about persons of any chosen age, what is the present value of their future offspring; and if the present value is calculated at the rate determined as before, the question has the definite meaning -- To what extent will persons of this age, on the average, contribute to the ancestry of future generations? The question is one of some interest, since the direct action of Natural Selection must be proportional to this contribution."
+``We may ask, not only about the newly born, but about persons of any chosen age, what is the present value of their future offspring; and if the present value is calculated at the rate determined as before, the question has the definite meaning -- To what extent will persons of this age, on the average, contribute to the ancestry of future generations? The question is one of some interest, since the direct action of Natural Selection must be proportional to this contribution.''
 \end{block}
 \vspace{.5cm}
 \pause
@@ -178,6 +178,10 @@ where\\
 %$R_0 = \displaystyle\sum\limits_{j=1}^{J} l_j \, b_j$\\
 %\end{frame}
 
+%----------- slide --------------------------------------------------%
+\begin{frame}{Leslie matrix formalism inherently satisfies Euler-Lotka equation}
+Given stable demography\\
+\end{frame}
 
 %----------- slide --------------------------------------------------%
 \begin{frame}{Review: Leslie Matrices}
@@ -200,7 +204,7 @@ where\\
 $\mathbf{z}_{t+1} = \mathbf{A} \, \mathbf{z}_t$
 \end{frame}
 
-\begin{frame}{Euler-Lotka Equation}
+\begin{frame}{Leslie to Euler-Lotka}
   \begin{tikzpicture}[every text node part/.style={align=center}]
     % Preliminaries
     \usetikzlibrary{shapes.geometric, arrows, shapes.multipart}
@@ -231,7 +235,7 @@ $\mathbf{z}_{t+1} = \mathbf{A} \, \mathbf{z}_t$
   \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Euler-Lotka Equation}
+\begin{frame}{Leslie to Euler-Lotka}
   \begin{tikzpicture}[every text node part/.style={align=center}]
     % Preliminaries
     \usetikzlibrary{shapes.geometric, arrows, shapes.multipart}
@@ -278,7 +282,7 @@ $\mathbf{z}_{t+1} = \mathbf{A} \, \mathbf{z}_t$
   \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Euler-Lotka Equation}
+\begin{frame}{Leslie to Euler-Lotka}
   $y_t \equiv z_t[1]$\\
   \vspace{.5cm}
   $y_t = y_{t-1} \, F_1 + y_{t-2} \, S_1 \ F_2 + y_{t-2} \, P_1 \, P_2 \, F_3 + \cdots = \displaystyle\sum\limits_{j=1}^{J} y_{t-j-1} \, l_j \, F_j$\\
@@ -291,18 +295,73 @@ $\mathbf{z}_{t+1} = \mathbf{A} \, \mathbf{z}_t$
   %$l_j = \displaystyle\prod\limits_{i=1}^{j-1} P_k$
 \end{frame}
 
-\begin{frame}{Euler-Lotka Equation}
-%  $1 = \displaystyle\sum\limits_{j=0}^{J-1} \frac{l_j \, f_j}{\lambda^{j+1}}$\\
-  \vspace{.5cm}
-  $b_{j+1} \equiv \frac{f_j}{s_j}$\\
-  \vspace{.5cm}
-  $s_{j} = \frac{l_{j+1}}{l_j}$\\
-  \vspace{.5cm}
-  $f_j = \frac{l_{j+1} \, b_{j+1}}{l_j}$\\
-  \vspace{.5cm}
-  $1 = \displaystyle\sum\limits_{j=1}^{J} \frac{l_j \, f_j}{\lambda^{j+1}} = \displaystyle\sum\limits_{j=1}^{J} \frac{l_j \, l_{j+1} \, b_{j+1}}{l_j \, \lambda^{j+1}} = \displaystyle\sum\limits_{j=1}^{J} \frac{l_{j+1} \, b_{j+1}}{\lambda^{j+1}} = \displaystyle\sum\limits_{j=2}^{J} \frac{l_j \, b_j}{\lambda^j}$\\
-  \vspace{.5cm}
+\begin{frame}{Starting with Leslie usually simplifies life}
+  Though, this requires familiarity with linear algebra and multivariable calculus
 \end{frame}
+
+\begin{frame}{Aside: derivatives of matrices}
+  The right eigenvectors of $\mathbf{A}$ are defined by the equation\\
+  \vspace{.5cm}
+  $\mathbf{A} \, \mathbf{w}^{(m)} = \lambda^{(m)} \, \mathbf{w}^{(m)}$\\
+  \vspace{.5cm}
+  The left eigenvectors of $\mathbf{A}$ are defined by the equation\\
+  ${\mathbf{v}^{(m)}}^{\dagger} \, \mathbf{A} =	{\mathbf{v}^{(m)}}^{\dagger} \, \lambda^{(m)}$\\
+  \vspace{.5cm}
+  Taking an exterior derivative of the top equation yields\\
+  \vspace{.5cm}
+  $\mathrm{d}\mathbf{A} \, \mathbf{w}^{(m)} + \mathbf{A} \, \mathrm{d}\mathbf{w}^{(m)}= \mathrm{d}\lambda^{(m)} \, \mathbf{w}^{(m)} + \lambda^{(m)} \, \mathrm{d}\mathbf{w}^{(m)}$\\
+\end{frame}
+
+\begin{frame}{Aside: derivatives of matrices}
+  Now take the inner product with respect to $\greekbf{v}^{(n)}$ (i.e., pre-multiply by ${\greekbf{v}^{(n)}}^{\dagger}$ and rearrange terms)\\
+  \vspace{.5cm}
+  ${\mathbf{v}^{(n)}}^{\dagger} \, \mathrm{d}\mathbf{A} \, \mathbf{w}^{(m)} = {\mathbf{v}^{(n)}}^{\dagger} \, \mathrm{d}\lambda^{(m)} \, \mathbf{w}^{(m)} + {\mathbf{v}^{(n)}}^{\dagger} \left(\lambda^{(m)} - \mathbf{A} \right) \mathrm{d}\mathbf{w}^{(m)}$\\
+  \vspace{.5cm}
+  If $m=n$ the last term on the right vanishes\\
+  \vspace{.5cm}
+  ${\mathbf{v}^{(m)}}^{\dagger} \, \mathrm{d}\mathbf{A} \, \mathbf{w}^{(m)} = {\mathbf{v}^{(m)}}^{\dagger} \, \mathrm{d}\lambda^{(m)} \, \mathbf{w}^{(m)}$\\
+\end{frame}
+
+\begin{frame}{Aside: derivatives of matrices}
+  Solving for $\mathrm{d}\lambda^{(m)}$ yields\\
+  \vspace{.5cm}
+  $\mathrm{d}\lambda^{(m)} = \frac{{\mathbf{v}^{(m)}}^{\dagger} \, \mathrm{d}\mathbf{A} \, \mathbf{w}^{(m)}}{\psi^{(m)}}$\\
+  \vspace{.5cm}
+  where $\psi^{(m)}=\mathbf{v}^{(m)\dagger} \, \mathbf{w}^{(m)}$ is the inner product of the left and right eigenvectors of $\lambda^{(m)}$.\\
+  \vspace{.5cm}
+  Representing this in terms of the matrix element $A_{ij}$ yields\\
+  \vspace{.5cm}
+  $\frac{\partial \lambda^{(m)}}{\partial A_{ij}} = \frac{v^{(m)}_i \, w^{(m)}_j}{\psi^{(m)}}$
+\end{frame}
+
+\begin{frame}{Amazingly}
+  $\mathbf{v}$, the domimant left eigenvector of $\mathbf{A}$, is the vector of age-specific reproductive values\\
+  \vspace{.5cm}
+  Less amazingly (perhaps):\\
+  \vspace{.5cm}
+  $\mathbf{w}$, the domimant right eigenvector of $\mathbf{A}$, is the stable age distribution\\
+  \vspace{.5cm}
+  Remarkably (perhaps) the derivative of the dominant eigenvalue with respect to any matrix element is\\
+  \vspace{.5cm}
+  $\frac{\partial \lambda}{\partial A_{ij}} = \frac{v_i \, w_j}{\psi}$
+\end{frame}
+
+\begin{frame}{Use this to link evolutionary and economic theory}
+Assume that each element of the Leslie matrix depends on a valuable but limited resource that can be used to increase its value. Stated formally, each Leslie matrix element $A_{i'i}$ is a monotonically increasing function of consumption allocated to it, $x_{i'i}$. For example, an individual can increase survival in a given age class by dedicating more resources to it and, similarly, can increase fertility by dedicating more resources to reproduction. These scarce resources can be re-allocated between any two matrix elements, both inter-temporally and between survival and fertility in the same age class. Given these preliminaries, it is straightforward to derive the intertemporal MRS at constant fitness ($d\lambda=0$) using the chain rule. 
+\end{frame}
+
+\begin{frame}{Use this to link evolutionary and economic theory}
+  $MRS_{\lambda} = -\frac{dx_{j'j}}{dx_{i'i}}\bigg|_{d\lambda=0} = \frac{\frac{\partial \lambda}{\partial A_{i'i}}}{\frac{\partial \lambda}{\partial A_{j'j}}} \frac{\frac{\partial A_{i'i}}{\partial x_{i'i}}}{\frac{\partial A_{j'j}}{\partial x_{j'j}}} = \frac{v_{i'} \, w_i}{v_{j'} \, w_j} \frac{A'_{i'i}}{A'_{j'j}}$\\
+  \vspace{.5cm}
+  Representing this in terms of only fertility or only survival yields\\
+  \vspace{.5cm}
+  $MRS_{\lambda,ij} = \frac{w_i}{w_j} \frac{F'_i}{F'_j} = \frac{v_{i+1}}{v_{j+1}} \frac{w_i}{w_j} \frac{P'_i}{P'_j}$\\
+  \vspace{.5cm}
+  Emplying some identities:\\
+  \vspace{.5cm}
+  $MRS_{\lambda,ij} = \frac{1}{P_{ij}} \lambda^{j-i} \frac{F'_i}{F'_j}$
+\end{frame}
+
 
 
 \end{document}
