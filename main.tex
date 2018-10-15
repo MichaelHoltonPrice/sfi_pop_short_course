@@ -12,6 +12,7 @@
 \usepackage{tikz,amsmath,array}
 
 
+
 \newcommand{\greekbf}[1]{\boldsymbol{\mathrm{#1}}}
 \newcommand{\btVFill}{\vskip0pt plus 1filll}
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
@@ -182,19 +183,25 @@
   \btVFill
   \small Images from Wikipedia \normalsize
 \end{frame}
+
 %----------- slide --------------------------------------------------%
-\begin{frame}{Life history theory}
-How natural selection shapes life histories
+\begin{frame}{Life history theory: action of selection on rate/timing of life events}
+  \begin{center}
+    \includegraphics[page=1,width=.8\textwidth]{hooper_slides_condensed.pdf}
+  \end{center}
+  \btVFill
+  \small Courtesy Paul Hooper\normalsize
 \end{frame}
+
 
 %----------- slide --------------------------------------------------%
 \begin{frame}{Life history traits}
-Growth pattern\\
-\pause
-\vspace{1cm}
 Lifespan\\
-\pause
 \vspace{1cm}
+\pause
+Growth pattern\\
+\vspace{1cm}
+\pause
 Age at maturity\\
 \pause
 \vspace{1cm}
@@ -206,125 +213,141 @@ Age- and size-specific reproductive effort and mortality schedules\\
 
 %----------- slide --------------------------------------------------%
 \begin{frame}{Trade-offs: Constrained optimization}
-Graph here\\
+  \begin{center}
+    \includegraphics[width=.7\textwidth]{constrained_optimization.pdf}\
+  \end{center}
 \end{frame}
 
+%----------- slide --------------------------------------------------%
+\begin{frame}{Quantity / Quality trade-off}
+  \begin{center}
+    \includegraphics[width=.6\textwidth]{hanushek_1982_qqto.png}
+  \end{center}
+  \btVFill
+  \small Hanusheck 1992\normalsize
+\end{frame}
+
+%----------- slide --------------------------------------------------%
 \begin{frame}{Energy / effort partition models}
-Graph here\\
+  \begin{center}
+    \includegraphics[page=2,width=.8\textwidth]{hooper_slides_condensed.pdf}
+  \end{center}
+  \btVFill
+  \small Courtesy Paul Hooper\normalsize
 \end{frame}
 
+%----------- slide --------------------------------------------------%
 \begin{frame}{Energy / effort partition models}
-Example?\\
+  \Large Total = Repro + Growth + Maint\normalsize
 \end{frame}
 
-\begin{frame}{The space of mammalian life history traits}
-Four graphs\\
+%----------- slide --------------------------------------------------%
+\begin{frame}{The space of mammalian life histories}
+  \begin{center}
+    \includegraphics[width=1\textwidth]{fast_slow.pdf}
+  \end{center}
+\end{frame}
+
+\begin{frame}{The space of mammalian life histories}
+  \begin{center}
+    \includegraphics[width=.7\textwidth]{female_maturity.pdf}
+  \end{center}
+\end{frame}
+
+\begin{frame}{The space of mammalian life histories}
+  \begin{center}
+    \includegraphics[width=.7\textwidth]{weaning_mass.pdf}
+  \end{center}
 \end{frame}
 
 \begin{frame}{People are weird}
-Four graphs\\
+  \begin{center}
+    \includegraphics[page=1,width=.8\textwidth]{hooper_slides_condensed2.pdf}
+  \end{center}
+  \btVFill
+  \small Courtesy Paul Hooper\normalsize
 \end{frame}
 
-\begin{frame}{Linking economic and evolutionary theory: evolution of time preference}
-Core results and graphs\\
+\begin{frame}{People are weird}
+  \begin{center}
+    \includegraphics[page=2,width=.8\textwidth]{hooper_slides_condensed2.pdf}
+  \end{center}
+  \btVFill
+  \small Courtesy Paul Hooper\normalsize
 \end{frame}
 
-%----------- slide --------------------------------------------------%
-\begin{frame}{Reproductive Value: ``important but confusing concept''}
-\begin{block}{Euler 1930}
-``We may ask, not only about the newly born, but about persons of any chosen age, what is the present value of their future offspring; and if the present value is calculated at the rate determined as before, the question has the definite meaning -- To what extent will persons of this age, on the average, contribute to the ancestry of future generations? The question is one of some interest, since the direct action of Natural Selection must be proportional to this contribution.''
-\end{block}
-\vspace{.5cm}
-\pause
-% "easily seen to be given by this equation"
-$\frac{v(x)}{v(0)} = \frac{e^{rx}}{l(x)} \int_{x}^{\infty} e^{-ra} \, l(a) \, m(a) \, da$
-\end{frame}
 
 %----------- slide --------------------------------------------------%
-\begin{frame}{Reproductive Value: discrete age classes}
-  $v_i =  \displaystyle\sum\limits_{j=i}^{J} \frac{P_{ij} \, F_j}{\lambda^{j-i+1}} = \frac{F_i}{\lambda} + \frac{P_{i+1} \, F_{i+1}}{\lambda^2} + \frac{P_{i+1} \, P_{i+2} \, F_{i+2}}{\lambda^3} + \cdots$\\
-  \vspace{.5cm}
-  where\\
-  \vspace{.5cm}
-  $P_j$ is age-specific survival\\
-  \vspace{.5cm}
-  $F_j$ is age-specific fertility\\
-  \vspace{.5cm}
-  $P_{ij} = P_i \, P_{i+1} \cdots P_{j-1}$ is survival from age class $i$ to $j$\\
-  \vspace{.5cm}
-  $\lambda$ is the per period growth rate\\
+\begin{frame}[t]
+  \frametitle{Application: evolution of human time preference}
+  \begin{block}{Economic preferences evolved via natural selection}
+    \pause
+    \begin{itemize}
+      \item{Organisms use proximate decision-making mechanisms}
+    \end{itemize}
+  \end{block}
 \end{frame}
 
 %----------- slide --------------------------------------------------%
-\begin{frame}{Repro value plots using Goodman data}
+\begin{frame}
+  \frametitle{Evolutionary Principal Agent Problem}
+  \begin{center}
+    \includegraphics[width=1\textwidth]{PaP.png}
+  \end{center}
+\end{frame}
+
+
+%----------- slide --------------------------------------------------%
+\begin{frame}
+  \frametitle{Trade-offs leading to Evolutionary Principal Agent Problem}
+  \begin{center}
+    \includegraphics[width=1\textwidth]{why_PaP.png}
+  \end{center}
 \end{frame}
 
 %----------- slide --------------------------------------------------%
-\begin{frame}{Euler-Lotka / characteristic equation}
-  $v_1 = 1 = \displaystyle\sum\limits_{j=1}^{J} \frac{P_{1j} \, F_j}{\lambda^j} = \displaystyle\sum\limits_{j=1}^{J} \frac{l_j \, F_j}{\lambda^j}$\\
-\vspace{.5cm}
-where\\
-\vspace{.5cm}
-  $l_j = P_{1j}$ is survival from birth to age class $j$\\
+\begin{frame}
+  \frametitle{Consequence of Evolutionary Principal Agent Problem}
+  \begin{center}
+    \includegraphics[width=1\textwidth]{framework.png}
+  \end{center}
 \end{frame}
 
 %----------- slide --------------------------------------------------%
-\begin{frame}{Euler-Lotka continuous form}
-  $1 = \int_{0}^{\infty} e^{-ra} \, l(a) \, b(a) da$\\
-\end{frame}
-
-%----------- slide --------------------------------------------------%
-\begin{frame}{Euler-Lotka meets scaling theory}
-\end{frame}
-
-%----------- slide --------------------------------------------------%
-{
-  \setbeamercolor{background canvas}{bg=}
-  \includepdf[pages=1-9]{princeton_select_slides.pdf}
-}
-
-%----------- slide --------------------------------------------------%
-\begin{frame}{Euler-Lotka meets scaling theory}
-  $1 = e^{-r \alpha} \, R(w_0,w_{\alpha}) \, V(w_0,w_{\alpha})$\\
+\begin{frame}
+  \frametitle{Marginal Rate of Substitution (MRS)}
+  \begin{center}
+  $U = u(x_1) + u(x_2) e^{-\rho \, \Delta t}$
   \vspace{.5cm}
   \pause
-  $r = r(w_0,w_{\alpha})$\\
-  \vspace{.5cm}
-  \pause
-  $\frac{\partial r}{\partial w_0} = 0$\\
-  \vspace{.5cm}
-  \pause
-  $\alpha = \alpha(w_0,w_{\alpha})$\\
-  \vspace{.5cm}
-  \pause
-  $\frac{\partial}{\partial w_0} \left[ e^{-r \alpha} \, R(w_0,w_{\alpha}) \, V(w_0,w_{\alpha}) \right] = 0$\\
-  \vspace{.5cm}
-  \pause
-  $\frac{\partial \log{R}}{\partial w_0} - r \, \frac{\partial \alpha}{\partial w_0} + \frac{\partial \log{V}}{\partial w_0} \log{R} = 0$\\
+    \includegraphics[width=.7\textwidth]{fisher_indifference.pdf}\
+  \end{center}
 \end{frame}
 
 %----------- slide --------------------------------------------------%
-{
-  \setbeamercolor{background canvas}{bg=}
-  \includepdf[pages=10]{princeton_select_slides.pdf}
-}
+\begin{frame}
+  \frametitle{Marginal Rate of Substitution (MRS)}
+  $U = u(x_1) + u(x_2) e^{-\rho \, \Delta t}$\\
+  \vspace{.5cm}
+  \pause
 
-%%----------- slide --------------------------------------------------%
-%\begin{frame}{$R_0$: Expected daughters across mother's lifespan}
-%$1 = \displaystyle\sum\limits_{j=1}^{J} \frac{l_j \, b_j}{\lambda^j}$\\
-%\vspace{.5cm}
-%Compare to:\\
-%\vspace{.5cm}
-%$R_0 = \displaystyle\sum\limits_{j=1}^{J} l_j \, b_j$\\
-%\end{frame}
+  $0 = dU = u'(x_1) \, dx_1 + u(x_2) \, e^{-\rho \, \Delta t} \, dx_2$
+  \vspace{.5cm}
+  \pause
 
-%----------- slide --------------------------------------------------%
-\begin{frame}{Leslie matrix formalism inherently satisfies Euler-Lotka equation}
-Given stable demography\\
+  $MRS_{U} = -\frac{dx_2}{dx_1} \bigg\rvert_{dU=0} = \frac{1}{e^{-\rho \, \Delta t}} \frac{u'(x_1)}{u'(x_2)}$ 
 \end{frame}
 
 %----------- slide --------------------------------------------------%
-\begin{frame}{Review: Leslie Matrices}
+\begin{frame}
+  \frametitle{Marginal Rate of Substitution (MRS)}
+  $MRS_{U} = -\frac{dx_2}{dx_1} \bigg\rvert_{dU=0} = \frac{1}{e^{-\rho \, \Delta t}} \frac{u'(x_1)}{u'(x_2)}$ \\
+  \vspace{.5cm}
+  B\"{o}hm-Bawerk (1891): ``A first principal cause capable of producing a difference in value between present and future goods is... if a person suffers in the present from appreciable lack of certain goods, or of goods in general, but has reason to hope to be more generously provided for at a future time... We must now consider a second phenomenon of human experience -- that is heavily fraught with consequence. That is the fact that we feel less concerned about future sensations of joy and sorrow simply because they do lie in the future, and the lessening of our concern in proportion to the remoteness of that future.''
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{MRS at constant fitness}
 \centering
 \begin{equation*}
 	\label{eq:A}
@@ -342,6 +365,59 @@ Given stable demography\\
 \pause
 \vspace{1.5cm}
 $\mathbf{z}_{t+1} = \mathbf{A} \, \mathbf{z}_t$
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{MRS at constant fitness}
+  $F_i(x_i)$\\
+  \pause
+  \vspace{1.5cm}
+  $F_j(x_j)$\\
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{MRS at constant fitness}
+  Amazingly $\mathbf{v}$, the domimant left eigenvector of $\mathbf{A}$, is the vector of age-specific reproductive values\\
+  \vspace{.5cm}
+  Less amazingly (perhaps):\\
+  \vspace{.5cm}
+  $\mathbf{w}$, the domimant right eigenvector of $\mathbf{A}$, is the stable age distribution\\
+  \vspace{.5cm}
+  Remarkably (perhaps) the derivative of the dominant eigenvalue with respect to any matrix element is\\
+  \vspace{.5cm}
+  $\frac{\partial \lambda}{\partial A_{ij}} = \frac{v_i \, w_j}{\psi}$
+\end{frame}
+
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{MRS at constant fitness}
+  $0 = d\lambda = \frac{\partial \lambda}{\partial F_i} F_i'(x_i) \, dx_i + d\lambda = \frac{\partial \lambda}{\partial F_j} F_j'(x_j) \, dx_j$\\
+  \vspace{.5cm}
+  \pause
+  $MRS_{\lambda} = -\frac{dx_j}{dx_i} \bigg\rvert_{d\lambda=0} = \frac{F_i'(x_i) \, \frac{\partial \lambda}{\partial F_i}}{F_j'(x_j) \, \frac{\partial \lambda}{\partial F_j}} = \frac{1}{s_{ij}} \lambda^{j-i} \frac{F'_i}{F'_j}$ 
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{Setting them equal}
+  $MRS_{U} = MRS_{\lambda}$\\
+  \vspace{.5cm}
+  \pause
+  $e^{\rho \, \Delta t} \frac{u'(x_i)}{u'(x_j)} = \frac{1}{s_{ij}} \lambda^{j-i} \frac{F'_i}{F'_j}$\\
+  \vspace{.5cm}
+  \pause
+  $\rho \stackrel{?}{=} \frac{1}{\Delta t} [-log(s_{ij}) + (j-i)*log(\lambda)]$\\
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{Time discount factor from Madagascar 1968 stable demography}
+  \begin{center}
+    \includegraphics[width=.7\textwidth]{madagascar_1965_discount_rate.pdf}\
+  \end{center}
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{Backup: Leslie matrix formalism inherently satisfies Euler-Lotka equation}
+Given stable demography\\
 \end{frame}
 
 \begin{frame}{Leslie to Euler-Lotka}
@@ -435,11 +511,7 @@ $\mathbf{z}_{t+1} = \mathbf{A} \, \mathbf{z}_t$
   %$l_j = \displaystyle\prod\limits_{i=1}^{j-1} P_k$
 \end{frame}
 
-\begin{frame}{Starting with Leslie usually simplifies life}
-  Though, this requires familiarity with linear algebra and multivariable calculus
-\end{frame}
-
-\begin{frame}{Aside: derivatives of matrices}
+\begin{frame}{Backup: derivatives of matrices}
   The right eigenvectors of $\mathbf{A}$ are defined by the equation\\
   \vspace{.5cm}
   $\mathbf{A} \, \mathbf{w}^{(m)} = \lambda^{(m)} \, \mathbf{w}^{(m)}$\\
@@ -452,7 +524,7 @@ $\mathbf{z}_{t+1} = \mathbf{A} \, \mathbf{z}_t$
   $\mathrm{d}\mathbf{A} \, \mathbf{w}^{(m)} + \mathbf{A} \, \mathrm{d}\mathbf{w}^{(m)}= \mathrm{d}\lambda^{(m)} \, \mathbf{w}^{(m)} + \lambda^{(m)} \, \mathrm{d}\mathbf{w}^{(m)}$\\
 \end{frame}
 
-\begin{frame}{Aside: derivatives of matrices}
+\begin{frame}{Backup: derivatives of matrices}
   Now take the inner product with respect to $\greekbf{v}^{(n)}$ (i.e., pre-multiply by ${\greekbf{v}^{(n)}}^{\dagger}$ and rearrange terms)\\
   \vspace{.5cm}
   ${\mathbf{v}^{(n)}}^{\dagger} \, \mathrm{d}\mathbf{A} \, \mathbf{w}^{(m)} = {\mathbf{v}^{(n)}}^{\dagger} \, \mathrm{d}\lambda^{(m)} \, \mathbf{w}^{(m)} + {\mathbf{v}^{(n)}}^{\dagger} \left(\lambda^{(m)} - \mathbf{A} \right) \mathrm{d}\mathbf{w}^{(m)}$\\
@@ -462,7 +534,7 @@ $\mathbf{z}_{t+1} = \mathbf{A} \, \mathbf{z}_t$
   ${\mathbf{v}^{(m)}}^{\dagger} \, \mathrm{d}\mathbf{A} \, \mathbf{w}^{(m)} = {\mathbf{v}^{(m)}}^{\dagger} \, \mathrm{d}\lambda^{(m)} \, \mathbf{w}^{(m)}$\\
 \end{frame}
 
-\begin{frame}{Aside: derivatives of matrices}
+\begin{frame}{Backup: derivatives of matrices}
   Solving for $\mathrm{d}\lambda^{(m)}$ yields\\
   \vspace{.5cm}
   $\mathrm{d}\lambda^{(m)} = \frac{{\mathbf{v}^{(m)}}^{\dagger} \, \mathrm{d}\mathbf{A} \, \mathbf{w}^{(m)}}{\psi^{(m)}}$\\
@@ -473,35 +545,5 @@ $\mathbf{z}_{t+1} = \mathbf{A} \, \mathbf{z}_t$
   \vspace{.5cm}
   $\frac{\partial \lambda^{(m)}}{\partial A_{ij}} = \frac{v^{(m)}_i \, w^{(m)}_j}{\psi^{(m)}}$
 \end{frame}
-
-\begin{frame}{Amazingly}
-  $\mathbf{v}$, the domimant left eigenvector of $\mathbf{A}$, is the vector of age-specific reproductive values\\
-  \vspace{.5cm}
-  Less amazingly (perhaps):\\
-  \vspace{.5cm}
-  $\mathbf{w}$, the domimant right eigenvector of $\mathbf{A}$, is the stable age distribution\\
-  \vspace{.5cm}
-  Remarkably (perhaps) the derivative of the dominant eigenvalue with respect to any matrix element is\\
-  \vspace{.5cm}
-  $\frac{\partial \lambda}{\partial A_{ij}} = \frac{v_i \, w_j}{\psi}$
-\end{frame}
-
-\begin{frame}{Use this to link evolutionary and economic theory}
-Assume that each element of the Leslie matrix depends on a valuable but limited resource that can be used to increase its value. Stated formally, each Leslie matrix element $A_{i'i}$ is a monotonically increasing function of consumption allocated to it, $x_{i'i}$. For example, an individual can increase survival in a given age class by dedicating more resources to it and, similarly, can increase fertility by dedicating more resources to reproduction. These scarce resources can be re-allocated between any two matrix elements, both inter-temporally and between survival and fertility in the same age class. Given these preliminaries, it is straightforward to derive the intertemporal MRS at constant fitness ($d\lambda=0$) using the chain rule. 
-\end{frame}
-
-\begin{frame}{Use this to link evolutionary and economic theory}
-  $MRS_{\lambda} = -\frac{dx_{j'j}}{dx_{i'i}}\bigg|_{d\lambda=0} = \frac{\frac{\partial \lambda}{\partial A_{i'i}}}{\frac{\partial \lambda}{\partial A_{j'j}}} \frac{\frac{\partial A_{i'i}}{\partial x_{i'i}}}{\frac{\partial A_{j'j}}{\partial x_{j'j}}} = \frac{v_{i'} \, w_i}{v_{j'} \, w_j} \frac{A'_{i'i}}{A'_{j'j}}$\\
-  \vspace{.5cm}
-  Representing this in terms of only fertility or only survival yields\\
-  \vspace{.5cm}
-  $MRS_{\lambda,ij} = \frac{w_i}{w_j} \frac{F'_i}{F'_j} = \frac{v_{i+1}}{v_{j+1}} \frac{w_i}{w_j} \frac{P'_i}{P'_j}$\\
-  \vspace{.5cm}
-  Emplying some identities:\\
-  \vspace{.5cm}
-  $MRS_{\lambda,ij} = \frac{1}{P_{ij}} \lambda^{j-i} \frac{F'_i}{F'_j}$
-\end{frame}
-
-
 
 \end{document}
